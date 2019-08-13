@@ -25,7 +25,7 @@ server.get('/api/accounts', (req, res) => {
 server.get('/api/accounts/:id', (req, res) => {
     db("accounts")
     .where({id: req.params.id})
-    .first()
+    .first() // returns object out of array, instead of array with object
     .then(account => {
         res.status(200).json(account);
     })
